@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Stop - Waffle & Cafe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-content" class="site-content ">
+        
+        <div class="top-bar">
+            <div class="container bar-flex">
+                <span class="lang-tr">⏰ Open Daily: 09:00 - 23:00</span>
+                <span class="top-msg ">Discover delicious ♡</span>
+            </div>
+        </div>
+
+        <nav class="navbar pc-only">
+            <div class="container nav-flex">
+                <div class="logo">
+                    <h2 class="logo-title">Dessert Stop</h2>
+                    <p class="logo-subtitle">PASTRY SHOP & CAFE</p>
+                </div>
+                <ul class="nav-links">
+                    <li class="lang-tr"><a href="#home" class="active">Home Page</a></li>
+                    <li class="lang-tr"><a href="#menu-section">Menu</a></li>
+                    <li class="lang-tr"><a href="#about-section">About us</a></li>
+                    <li class="lang-tr"><a href="#contact-section">Communication</a></li>
+                    
+                </ul>
+                <div class="nav-right">
+                    <a href="#menu-section" class="order-btn ">Online Sipariş 🛒</a>
+                </div>
+            </div>
+        </nav>
+
+        
+        <header class="mobile-header mobile-only">
+            <button class="menu-trigger" onclick="toggleMobileMenu(true)">☰</button>
+            <div class="mobile-logo">
+                <h2>Dessert Stop</h2>
+                <p>PASTRY SHOP & CAFE</p>
+            </div>
+            <button class="noti-btn">🔔</button>
+        </header>
+
+        <div id="mobile-overlay-menu" class="mobile-menu-overlay hidden">
+            <div class="overlay-header">
+                <h2>Dessert Stop</h2>
+                <button class="close-trigger" onclick="toggleMobileMenu(false)">✕</button>
+            </div>
+            <ul class="overlay-links">
+                <li class="lang-tr"><a href="#home" onclick="toggleMobileMenu(false)">Home Page</a></li>
+                <li class="lang-tr"><a href="#menu-section" onclick="toggleMobileMenu(false)">Menu</a></li>
+                <li class="lang-tr"><a href="#about-section" onclick="toggleMobileMenu(false)">About us</a></li>
+                <li class="lang-tr"><a href="#contact-section" onclick="toggleMobileMenu(false)">Communication</a></li>
+
+            </ul>
+        </div>
+
+
+<section id="home" class="hero">
+    <div class="container hero-container">
+        
+        <div class="hero-content">
+            <div class="lang-tr">
+                <h1 class="hero-title">A Sweet Moment<br><span class="italic-title">A Happy You</span></h1>
+                <p class="hero-text">Delicious desserts, crispy waffles, hot and cold drinks...</p>
+                <div class="hero-buttons">
+                    <a href="#menu-section" class="btn btn-filled">View Menu</a>
+                    <a href="#contact-section" class="btn btn-outline">Table Reservation</a>
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="hero-album">
+            <div class="album-item rect-img">
+                <img src="img/12.jpg" alt="Premium Waffle" onerror="this.style.display='none'; this.parentNode.innerText='📸 img/hero-waffle.jpg'">
+            </div>
+            <div class="album-item square-img-1">
+                <img src="img/bb.jpg" alt="Special Drink" onerror="this.style.display='none'; this.parentNode.innerText='📸 img/hero-drink.jpg'">
+            </div>
+            <div class="album-item square-img-2">
+                <img src="img/ppp.jpg" alt="Delicious Cake" onerror="this.style.display='none'; this.parentNode.innerText='📸 img/hero-cake.jpg'">
+            </div>
+        </div>
+
+</section>
+        <section id="menu-section" class="menu-block container">
+            <div class="section-title-wrap">
+                <h2 class="section-title ">Menu Categories</h2>
+            </div>
+
+            <div class="tabs-row">
+                <button class="tab-btn active" onclick="filterCategory('waffle')">🧇 Waffle</button>
+                <button class="tab-btn" onclick="filterCategory('pastalar')">🎂 Cake</button>
+                <button class="tab-btn" onclick="filterCategory('sicak')">☕Hot Drinks</button>
+                <button class="tab-btn" onclick="filterCategory('soguk')">🍹 Cold Drinks</button>
+            </div>
+
+            <div id="products-grid" class="products-grid">
+                
+            </div>
+        </section>
+        
+
+<div id="detail-modal" class="modal hidden">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-body-layout">
+            <div class="modal-img-placeholder">🍰 Product Image</div>
+            <div class="modal-details">
+                <h2 id="modal-title">Product Name</h2>
+                <p id="modal-price" class="modal-price">00 TL</p>
+                <p id="modal-desc" class="modal-desc">The product description will be placed here.</p>
+                
+
+                <div class="modal-action-row">
+                    <div class="quantity-picker">
+                        <button onclick="changeQty(-1)">-</button>
+                        <span id="qty-val">1</span>
+                        <button onclick="changeQty(1)">+</button>
+                    </div>
+                    <button class="add-to-cart-btn " onclick="sendWhatsAppOrder()">Order via WhatsApp 💬</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section id="about-section" class="about-block">
+    <div class="container">
+        
+        <div class="section-title-wrap">
+            <h2 class="section-title ">Photos from our restaurant</h2>
+        </div>
+
+        <div class="about-slider-container">
+            <div class="about-slider-track" id="aboutSliderTrack">
+                <div class="slide"><img src="img/pp.jpg" alt="Tatlı Durağı 1" onerror="this.src='img/12.jpg'"></div>
+                <div class="slide"><img src="img/p.jpg" alt="Tatlı Durağı 2" onerror="this.src='img/bb.jpg'"></div>
+                <div class="slide"><img src="img/b.jpg" alt="Tatlı Durağı 3" onerror="this.src='img/ppp.jpg'"></div>
+                <div class="slide"><img src="img/ppp.jpg" alt="Tatlı Durağı 4" onerror="this.src='img/5.jpg'"></div>
+                <div class="slide"><img src="img/bb.jpg" alt="Tatlı Durağı 5" onerror="this.src='img/11.jpg'"></div>
+                <div class="slide"><img src="img/5.jpg" alt="Tatlı Durağı 6" onerror="this.src='img/22.jpg'"></div>
+            </div>
+        </div>
+
+        <div class="about-text-content" style="text-align: center; max-width: 800px; margin: 40px auto 0;">
+            <h2 class="lang-tr" style="font-family: var(--font-heading); margin-bottom: 15px;">About Tatlı Durağı</h2>
+            
+            <p class="lang-tr">Since 2015, we have been producing crispy waffles and delicious cakes with the finest ingredients, offering our guests a unique experience.</p>
+        
+            <div class="badges-row" style="justify-content: center; margin-top: 25px;">
+                <div class="badge">🍓 Daily Fresh</div>
+                <div class="badge">🍫 Quality Chocolate</div>
+                <div class="badge">👨‍🍳 Master Chefs</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+        <section id="contact-section" class="contact-block container">
+            <div class="contact-grid">
+                <div class="contact-info-side">
+                    <h3 class="lang-tr">Contact Us</h3>
+                    <p>📍 Tatlı Sokak No: 12, İstanbul</p>
+                    <p>📞 0555 123 45 67</p>
+                    <p>✉️ info@tatliduragi.com</p>
+                </div>
+                <div class="contact-form-side">
+                    <h3 class="lang-tr">Table Reservation & Message</h3>
+                    <form onsubmit="event.preventDefault(); alert('Başarılı / Success');">
+                        <input type="text" placeholder="Adınız / Name" required>
+                        <input type="tel" placeholder="Telefon / Phone" required>
+                        <textarea placeholder="Mesajınız veya Rezervasyon Saatiniz / Message or Reservation Details" rows="4" required></textarea>
+                        <button type="submit" class="btn-filled btn">Gönder / Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div class="mobile-bottom-nav mobile-only">
+            <a href="#home" class="sub-nav-item">🏠 <span class="lang-tr">Home Page</span>></a>
+            <a href="#menu-section" class="sub-nav-item">📋 <span class="lang-tr">Menu</span></a>
+            <a href="#about-section" class="sub-nav-item">ℹ️ <span class="lang-tr">About us </span></a>
+            <a href="#contact-section" class="sub-nav-item">📅 <span class="lang-tr">Reservation</span></a>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
